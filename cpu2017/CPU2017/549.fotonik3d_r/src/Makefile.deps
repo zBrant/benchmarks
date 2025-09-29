@@ -1,0 +1,20 @@
+
+
+# End dependencies
+# These are the build dependencies
+$(addsuffix $(OBJ), MPI_dummy.fppized): MPI_dummy.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) )
+$(addsuffix $(OBJ), PEC.fppized): PEC.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), PlaneSource.fppized): PlaneSource.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90 readline.f90) globalvar.fppized)
+$(addsuffix $(OBJ), UPML.fppized): UPML.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized material.fppized)
+$(addsuffix $(OBJ), calcflops.fppized): calcflops.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) PlaneSource.fppized globalvar.fppized power.fppized)
+$(addsuffix $(OBJ), communicate.fppized): communicate.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), globalvar.fppized): globalvar.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) )
+$(addsuffix $(OBJ), huygens.fppized): huygens.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), init.fppized): init.fppized.f90 $(addsuffix $(OBJ),$(basename ) PEC.fppized PlaneSource.fppized UPML.fppized communicate.fppized globalvar.fppized huygens.fppized material.fppized mur.fppized power.fppized update.fppized)
+$(addsuffix $(OBJ), leapfrog.fppized): leapfrog.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) PEC.fppized PlaneSource.fppized UPML.fppized communicate.fppized globalvar.fppized huygens.fppized material.fppized mur.fppized power.fppized update.fppized)
+$(addsuffix $(OBJ), material.fppized): material.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90 readline.f90) globalvar.fppized)
+$(addsuffix $(OBJ), mur.fppized): mur.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized material.fppized)
+$(addsuffix $(OBJ), power.fppized): power.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), update.fppized): update.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), writeout.fppized): writeout.fppized.f90 $(addsuffix $(OBJ),$(basename parameter.f90) globalvar.fppized)
+$(addsuffix $(OBJ), yeemain.fppized): yeemain.fppized.f90 $(addsuffix $(OBJ),$(basename ) PEC.fppized PlaneSource.fppized UPML.fppized communicate.fppized globalvar.fppized mur.fppized power.fppized)

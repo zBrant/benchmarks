@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SPEC_DVD=$1
+
+if [ -z ${SPEC_DVD} ]
+then
+	echo Usage: $0 PATH_TO_SPEC_DVD
+	exit 1
+fi
+
+if [ ! -e ${SPEC_DVD}/benchspec/CPU/557.xz_r/src/pxz.c ]
+then
+	echo Cannot find SPEC sources at ${SPEC_DVD}
+	exit 1
+fi
+
+if [ ! -e cpu2017/CPU2017/557.xz_r/src/Makefile.spec ]
+then
+	echo Please run this script from the benchmarks/ directory
+	exit 1
+fi
+
+SPEC_VERSION=$(head -n 1 ${SPEC_DVD}/version.txt)
+if [ $SPEC_VERSION != "1.1.0" ]
+then
+	echo Invalid version to SPEC CPU2017 - version $SPEC_VERSION
+	exit 1
+fi
+
+echo Installing SPEC CPU2017 v$SPEC_VERSION
+
+echo Installing SPEC CPU2017 sources...
+cp -r ${SPEC_DVD}/benchspec/CPU/* cpu2017/CPU2017/
+
+echo Installing SPEC CPU2017 binary utilities...
+mkdir -p cpu2017/bin
+cp -r ${SPEC_DVD}/bin/* cpu2017/bin/
+
+tar -xf ${SPEC_DVD}/tools/bin/linux-x86_64/tools-linux-x86_64.tar.xz -C cpu2017
+
+# Fix permissions when sources are copied from a read-only DVD image
+find cpu2017/CPU2017 -type d -exec chmod +w {} \;
+
+echo SPEC CPU2017 v$SPEC_VERSION successfully installed.
