@@ -321,11 +321,11 @@ name_to_input_index = {
 }
 
 inputmap = {
+  'all': 'all',
   'test': 'test',
   'train': 'train',
-  'ref': 'ref',
-  'large': 'train',
-  'huge': 'ref',
+  'refspeed': 'refspeed',
+  'refrate': 'refrate',
 }
 
 def allbenchmarks():
