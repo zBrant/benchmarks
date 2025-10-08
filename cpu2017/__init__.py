@@ -53,248 +53,271 @@ name_to_dir = {
   'fotonik3d_s': '649.fotonik3d_s',
   'roms_s': '654.roms_s',
   'xz_s': '657.xz_s',
-  'specrand_fs': '996.specrand_fs',
-  'specrand_fr': '997.specrand_fr',
-  'specrand_is': '998.specrand_is',
-  'specrand_ir': '999.specrand_ir',
+  #'specrand_fs': '996.specrand_fs',
+  #'specrand_fr': '997.specrand_fr',
+  #'specrand_is': '998.specrand_is',
+  #'specrand_ir': '999.specrand_ir',
 }
 
 name_to_input_index = {
-    'perlbench_r': {
-        'test': [],
-        'train': [],
-        'ref': ['checkspam', 'diffmail', 'splitmail'],
-    },
-    'perlbench_s': {
-        'test': [],
-        'train': [],
-        'ref': ['checkspam', 'diffmail', 'splitmail'],
-    },
-    'gcc_r': {
-        'test': [],
-        'train': [],
-        'ref': ['gcc-pp', 'gcc-smaller', 'ref32'],
-    },
-    'gcc_s': {
-        'test': [],
-        'train': [],
-        'ref': ['gcc-pp'],
-    },
-    'mcf_r': {
-        'test': [],
-        'train': [],
-        'ref': ['inp'],
-    },
-    'mcf_s': {
-        'test': [],
-        'train': [],
-        'ref': ['inp'],
-    },
-    'omnetpp_r': {
-        'test': [],
-        'train': [],
-        'ref': ['omnetpp'],
-    },
-    'omnetpp_s': {
-        'test': [],
-        'train': [],
-        'ref': ['omnetpp'],
-    },
-    'xalancbmk_r': {
-        'test': [],
-        'train': [],
-        'ref': ['t5', '100mb', 'xalanc'],
-    },
-    'xalancbmk_s': {
-        'test': [],
-        'train': [],
-        'ref': ['t5', '100mb', 'xalanc'],
-    },
-    'x264_r': {
-        'test': [],
-        'train': [],
-        'ref': ['BuckBunny'],
-    },
-    'x264_s': {
-        'test': [],
-        'train': [],
-        'ref': ['BuckBunny'],
-    },
-    'deepsjeng_r': {
-        'test': [],
-        'train': [],
-        'ref': ['ref'],
-    },
-    'deepsjeng_s': {
-        'test': [],
-        'train': [],
-        'ref': ['ref'],
-    },
-    'leela_r': {
-        'test': [],
-        'train': [],
-        'ref': ['ref'],
-    },
-    'leela_s': {
-        'test': [],
-        'train': [],
-        'ref': ['ref'],
-    },
-    'exchange2_r': {
-        'test': [],
-        'train': [],
-        'ref': ['6'],
-    },
-    'exchange2_s': {
-        'test': [],
-        'train': [],
-        'ref': ['6'],
-    },
-    'xz_r': {
-        'test': [],
-        'train': [],
-        'ref': ['cld.tar', 'cpu2006docs.tar', 'input.combined'],
-    },
-    'xz_s': {
-        'test': [],
-        'train': [],
-        'ref': ['cpu2006docs.tar', 'cld.tar'],
-    },
-    'specrand_ir': {
-        'test': [],
-        'train': [],
-        'ref': ['1255432124', '234923'],
-    },
-    'specrand_is': {
-        'test': [],
-        'train': [],,
-        'ref': ['1255432124', '234923'],
-    },
-    'bwaves_r': {
-        'test': [],
-        'train': [],
-        'ref': ['bwaves_1', 'bwaves_2', 'bwaves_3', 'bwaves_4'],
-    },
-    'bwaves_s': {
-        'test': [],
-        'train': [],
-        'ref': ['bwaves_1', 'bwaves_2'],
-    },
-    'cactuBSSN_r': {
-        'test': [],
-        'train': [],
-        'ref': ['spec_ref'],
-    },
-    'cactuBSSN_s': {
-        'test': [],
-        'train': [],
-        'ref': ['spec_ref'],
-    },
-    'namd_r': {
-        'test': [],
-        'train': [],
-        'ref': ['namd'],
-    },
-    'parest_r': {
-	'test': [],
-        'train': [],
-        'ref': ['ref'],
-    },
-    'povray_r': {
-        'test': [],
-        'train': [],
-        'ref': ['SPEC-benchmark-ref'],
-    },
-    'lbm_r': {
-        'test': [],
-        'train': [],
-        'ref': ['100_100_130_ldc'],
-    },
-    'lbm_s': {
-        'test': [],
-        'train': [],
-        'ref': ['200_200_260_ldc'],
-    },
-    'wrf_r': {
-        'test': [],
-        'train': [],
-        'ref': ['namelist'],
-    },
-    'wrf_s': {
-        'test': [],
-        'train': [],
-        'ref': ['namelist'],
-    },
-    'blender_r': {
-        'test': [],
-        'train': [],
-        'ref': ['sh3_no_char'],
-    },
-    'cam4_r': {
-        'test': [],
-        'train': [],
-        'ref': ['atm_in', 'drv_flds_in', 'drv_in'],
-    },
-    'cam4_s': {
-        'test': [],
-        'train': [],
-        'ref': ['atm_in', 'drv_flds_in', 'drv_in'],
-    },
-    'pop2_s': {
-        'test': [],
-        'train': [],
-        'ref': ['pop2_in'],
-    },
-    'imagick_r': {
-        'test': [],
-        'train': [],
-        'ref': ['refrate_convert'],
-    },
-    'imagick_s': {
-        'test': [],
-        'train': [],
-        'ref': ['refspeed_convert'],
-    },
-    'nab_r': {
-        'test': [],
-        'train': [],
-        'ref': ['1am0'],
-    },
-    'nab_s': {
-        'test': [],
-        'train': [],
-        'ref': ['3j1n'],
-    },
-    'fotonik3d_r': {
-        'test': [],
-        'train': [],
-        'ref': ['fotonik3d'], # maybe wrong
-    },
-    'fotonik3d_s': {
-        'test': [],
-        'train': [],
-        'ref': ['fotonik3d'], # maybe wrong
-    },
-    'roms_r': {
-        'test': [],
-        'train': [],
-        'ref': ['ocean_benchmark2'],
-    },
-    'roms_s': {
-        'test': [],
-        'train': [],
-        'ref': ['ocean_benchmark3'],
-    },
-    'specrand_fr': {
-        'test': [],
-        'train': [], 
-        'ref': ['rand.234923'], # maybe wrong
-    },
-    'specrand_fs': {
-        'test': [],
-        'train': [],
-        'ref': ['rand.234923'], # maybe wrong
-    },
+  'perlbench_r': {
+    'refrate': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'gcc_r': {
+    'refrate': ['gcc-smaller.c', 'gcc-pp.c', 'control', 'ref32.c'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'bwaves_r': {
+    'refrate': ['bwaves_1.in', 'bwaves_3.in', 'bwaves_4.in', 'bwaves_2.in', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'mcf_r': {
+    'refrate': ['control', 'inp.in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'cactuBSSN_r': {
+    'refrate': ['control', 'spec_ref.par'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'namd_r': {
+    'refrate': ['namd.in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'parest_r': {
+    'refrate': ['ref.prm'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'povray_r': {
+    'refrate': ['SPEC-benchmark-ref.ini', 'SPEC-benchmark-ref.pov'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'lbm_r': {
+    'refrate': ['lbm.in', '100_100_130_ldc.of'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'omnetpp_r': {
+    'refrate': ['omnetpp.ini', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'wrf_r': {
+    'refrate': ['control', 'namelist.input'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'xalancbmk_r': {
+    'refrate': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'x264_r': {
+    'refrate': ['control', 'BuckBunny.264'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'blender_r': {
+    'refrate': ['sh3_no_char.blend', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'cam4_r': {
+    'refrate': ['drv_flds_in', 'atm_in', 'drv_in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'deepsjeng_r': {
+    'refrate': ['ref.txt'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'imagick_r': {
+    'refrate': ['control', 'refrate_input.tga'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'leela_r': {
+    'refrate': ['ref.sgf'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'nab_r': {
+    'refrate': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'exchange2_r': {
+    'refrate': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'fotonik3d_r': {
+    'refrate': ['power2.dat', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'incident_W3PC.def', 'PSI.dat', 'trans_W3PC.def'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'roms_r': {
+    'refrate': ['ocean_benchmark2.in.x'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'xz_r': {
+    'refrate': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'perlbench_s': {
+    'refspeed': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'gcc_s': {
+    'refspeed': ['gcc-pp.c', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'bwaves_s': {
+    'refspeed': ['bwaves_1.in', 'bwaves_2.in', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'mcf_s': {
+    'refspeed': ['control', 'inp.in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'cactuBSSN_s': {
+    'refspeed': ['control', 'spec_ref.par'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'lbm_s': {
+    'refspeed': ['lbm.in', '200_200_260_ldc.of'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'omnetpp_s': {
+    'refspeed': ['omnetpp.ini', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'wrf_s': {
+    'refspeed': ['control', 'namelist.input'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'xalancbmk_s': {
+    'refspeed': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'x264_s': {
+    'refspeed': ['control', 'BuckBunny.264'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'cam4_s': {
+    'refspeed': ['drv_flds_in', 'atm_in', 'drv_in'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'pop2_s': {
+    'refspeed': ['pop2_in', 'dlnd_in', 'nyf.gxgxs.T62.stream.txt', 'glc_modelio.nml', 'dlnd_sno_in', 'seq_maps.rc', 'nyf.ncep.T62.stream.txt', 'dice_ice_in', 'datm_atm_in', 'gx3v7_tavg_contents', 'dice_in', 'datm_in', 'cpl_modelio.nml', 'dlnd_rof_in', 'nyf.giss.T62.stream.txt', 'ice_modelio.nml', 'pop2_in.org', 'drv_in.in', 'runoff.1x1.stream.txt', 'dlnd_lnd_in', 'ssmi_ifrac.clim.x0.5.txt', 'ocn_modelio.nml', 'lnd_modelio.nml', 'atm_modelio.nml'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'deepsjeng_s': {
+    'refspeed': ['ref.txt'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'imagick_s': {
+    'refspeed': ['refspeed_input.tga', 'control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'leela_s': {
+    'refspeed': ['ref.sgf'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'nab_s': {
+    'refspeed': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'exchange2_s': {
+    'refspeed': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'fotonik3d_s': {
+    'refspeed': ['power2.dat', 'incident_W3PC_25nm.def', 'trans_W3PC_25nm.def', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'PSI.dat'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'roms_s': {
+    'refspeed': ['ocean_benchmark3.in.x'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
+  'xz_s': {
+    'refspeed': ['control'],
+    'all': [],
+    'test': [],
+    'train': []
+  },
 }
 
 inputmap = {
@@ -373,21 +396,6 @@ class Program:
 	      for filename in os.listdir(datadir):
 	        filename = os.path.abspath(os.path.join(datadir, filename))
 	        os.symlink(filename, os.path.join(rundir,os.path.basename(filename)))
-      elif self.program == 'sphinx3':
-        for datadir in (os.path.join('data',self.inputsize,'input'),):
-          datadir = os.path.abspath(os.path.join(HOME,'CPU2006',name_to_dir[self.program],datadir))
-          if not os.path.exists(datadir): raise Exception('Unable to find sphinx3-specific files')
-          files = []
-          for filename in os.listdir(datadir):
-            if '.le.raw' in filename:
-              files.append(filename.split('.le.raw')[0])
-              destfilename = filename.split('.le.raw')[0]+'.raw'
-              filename = os.path.abspath(os.path.join(datadir, filename))
-              os.symlink(filename, os.path.join(rundir,os.path.basename(destfilename)))
-          ctlfp = open(os.path.join(rundir,'ctlfile'), 'w')
-          for f in sorted(files):
-            ctlfp.write('%s %u\n' % (f, os.stat(os.path.join(rundir,f+'.raw')).st_size))
-          ctlfp.close()
       input_filenames = []
       for indir in ('all', self.inputsize):
         try:
