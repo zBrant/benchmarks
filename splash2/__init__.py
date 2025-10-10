@@ -6,7 +6,7 @@ abspath = lambda d: os.path.abspath(os.path.join(d))
 HOME = abspath(os.path.dirname(__file__))
 
 splashrun = {}
-execfile(os.path.join(HOME, 'splash2', 'splashrun'), splashrun)
+exec(open(os.path.join(HOME, 'splash2', 'splashrun')).read(), splashrun)
 
 
 def allbenchmarks():
@@ -22,7 +22,7 @@ def allinputs():
 class Program:
 
   def __init__(self, program, nthreads, inputsize, benchmark_options = []):
-    if program not in allbenchmarks():
+    if str.encode(program) not in allbenchmarks():
       raise ValueError("Invalid benchmark %s" % program)
     if inputsize not in allinputs():
       raise ValueError("Invalid input size %s" % inputsize)

@@ -15,11 +15,11 @@ def benchmarks_root():
       if not os.path.isfile(os.path.join(root,'run-sniper')):
         raise EnvironmentError((errno.EINVAL, 'Invalid %s directory [%s]' % (rootname, root)))
       else:
-	if os.path.realpath(root) != local_benchmarks_root():
-	  print >> sys.stderr, 'Warning: %s is different from current script directory [%s]!=[%s]' % (rootname, os.path.realpath(root), local_benchmarks_root())
-	return root
+        if os.path.realpath(root) != local_benchmarks_root():
+          print >> sys.stderr, 'Warning: %s is different from current script directory [%s]!=[%s]' % (rootname, os.path.realpath(root), local_benchmarks_root())
+    return root
 
-  # Use the root corresponding to this file when nothing has been set
+# Use the root corresponding to this file when nothing has been set
   return local_benchmarks_root()
 
 
@@ -31,7 +31,7 @@ def sniper_root():
       if not os.path.isfile(os.path.join(root,'run-sniper')):
         raise EnvironmentError((errno.EINVAL, 'Invalid %s directory [%s]' % (rootname, root)))
       else:
-	return root
+        return root
 
   # Try to determine what the SNIPER_ROOT should be if it is not set
   bench_root = benchmarks_root()
@@ -53,18 +53,18 @@ def sim_root():
 
 if __name__ == "__main__":
 
-    def usage():
-      print 'Determine variable values, using the environment or directory names as appropriate'
-      print ' Usage:'
-      print '  %s [--benchmarks | --sniper | --sim ]'
-      print ' Returns the benchmarks, or Sniper root path. Otherwise, returns a json-like dictionary'
-      print ' with the detailed information.'
+  def usage():
+    print('Determine variable values, using the environment or directory names as appropriate')
+    print(' Usage:')
+    print('  %s [--benchmarks | --sniper | --sim ]')
+    print(' Returns the benchmarks, or Sniper root path. Otherwise, returns a json-like dictionary')
+    print(' with the detailed information.')
 
     try:
       opts, args = getopt.getopt(sys.argv[1:], '', ['benchmarks', 'sniper', 'sim'])
-    except getopt.GetoptError, e:
+    except getopt.GetoptError as e:
       # print help information and exit:
-      print e
+      print(e)
       usage()
       sys.exit(1)
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         found_opt = True
         try:
           sys.stdout.write('%s' % sniper_root())
-        except EnvironmentError, e:
+        except EnvironmentError as e:
           sys.stderr.write('EnvironmentError: %s\n' % e)
           sys.exit(1)
 
@@ -87,8 +87,8 @@ if __name__ == "__main__":
       roots['BENCHMARKS_ROOT'] = benchmarks_root()
       try:
         roots['SNIPER_ROOT'] = roots['GRAPHITE_ROOT'] = sniper_root()
-      except EnvironmentError, e:
+      except EnvironmentError as e:
         pass
-      print roots
+      print(roots)
 
     sys.exit(0)

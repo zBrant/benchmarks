@@ -32,8 +32,7 @@ for package, filename in DEPENDENCIES:
     missing.append(package)
 
 if missing:
-  print >> sys.stderr, '*** Please install the following package%s: %s' % \
-                       (len(missing)>1 and 's' or '', ' '.join(missing))
+  print(sys.stderr, '*** Please install the following package%s: %s' % (len(missing)>1 and 's' or '', ' '.join(missing)))
   sys.exit(1)
 else:
   sys.exit(0)
