@@ -50,15 +50,14 @@ def sniper_root():
 def sim_root():
   return sniper_root()
 
+def usage():
+  print('Determine variable values, using the environment or directory names as appropriate')
+  print(' Usage:')
+  print('  %s [--benchmarks | --sniper | --sim ]')
+  print(' Returns the benchmarks, or Sniper root path. Otherwise, returns a json-like dictionary')
+  print(' with the detailed information.')
 
 if __name__ == "__main__":
-
-  def usage():
-    print('Determine variable values, using the environment or directory names as appropriate')
-    print(' Usage:')
-    print('  %s [--benchmarks | --sniper | --sim ]')
-    print(' Returns the benchmarks, or Sniper root path. Otherwise, returns a json-like dictionary')
-    print(' with the detailed information.')
 
     try:
       opts, args = getopt.getopt(sys.argv[1:], '', ['benchmarks', 'sniper', 'sim'])
