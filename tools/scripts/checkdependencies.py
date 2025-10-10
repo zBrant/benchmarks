@@ -23,7 +23,7 @@ def find_file(filename):
   if os.path.exists(filename):
     return True
   for pattern, replacement in ALTERNATIVES:
-    if os.path.exists(filename.replace(pattern, replacement)):
+    if os.path.exists(filename.replace(pattern, replacement)): 
       return True
   return False
 
@@ -32,7 +32,7 @@ for package, filename in DEPENDENCIES:
     missing.append(package)
 
 if missing:
-  print(sys.stderr, '*** Please install the following package%s: %s' % (len(missing)>1 and 's' or '', ' '.join(missing)))
+  print('*** Please install the following package%s: %s' % (len(missing)>1 and 's' or '', ' '.join(missing)), file=sys.stderr)
   sys.exit(1)
 else:
   sys.exit(0)
