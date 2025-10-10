@@ -79,7 +79,7 @@ RUN cd /tmp && \
     cd / && \
     rm -rf /tmp/* /var/tmp/*
 # Add Python and Git to the path
-ENV PATH /usr/local/bin/:$PATH
+ENV PATH=/usr/local/bin/:$PATH
 
 FROM basebuilder AS builder
 # Setup the user in your environment
@@ -87,7 +87,7 @@ RUN useradd --create-home -s /bin/bash user
 USER user
 WORKDIR /home/user
 # Enable gcc-4.8 as the default
-ENV PATH /opt/rh/devtoolset-2/root/usr/bin/:$PATH
+ENV PATH=/opt/rh/devtoolset-2/root/usr/bin/:$PATH
 # Enable gcc-7 as the default
 #ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
 # Download the Benchmarks
@@ -140,12 +140,12 @@ RUN yum update -y && \
     yum clean all && \
     rm -rf /tmp/* /var/tmp/*
 # Enable gcc-7 as the default
-ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
+ENV PATH=/opt/rh/devtoolset-7/root/usr/bin/:$PATH
 WORKDIR /root
 # Copy Git and Python
 RUN mkdir -p /usr/local
 # Add Python and Git to the path
-ENV PATH /usr/local/bin/:$PATH
+ENV PATH=/usr/local/bin/:$PATH
 # Copy the compiled binaries from the previous docker image
 COPY --from=builder /usr/local /usr/local/
 # Set up a copy of the benchmarks root

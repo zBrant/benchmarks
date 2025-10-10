@@ -19,17 +19,17 @@ flags = [
 
 message = '# This file is auto-generated, changes made to it will be lost. Please edit %s instead.' % os.path.basename(__file__)
 
-file('buildconf.sh', 'w').write('\n'.join(
+open('buildconf.sh', 'w').write('\n'.join(
   [ message, '' ] +
   [ '%s="%s"' % i for i in flags ]
 ) + '\n')
 
-file('buildconf.makefile', 'w').write('\n'.join(
+open('buildconf.makefile', 'w').write('\n'.join(
   [ message, '' ] +
   [ '%s:=%s' % i for i in flags ]
 ) + '\n')
 
-file('buildconf.py', 'w').write('\n'.join(
+open('buildconf.py', 'w').write('\n'.join(
   [ message, '' ] +
   [ str(dict(flags)) ]
 ) + '\n')
