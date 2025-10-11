@@ -18,17 +18,17 @@ from suites import modules
 
 
 def usage():
-  print 'Run benchmark under the Sniper simulator'
-  print 'Usage:'
-  print '  %s  -p <program>  -i <inputsize (test)> -n <ncores (1)>  -m <machines (1)>  -d <outputdir (.)>  -c <config-file>  -r <sniper-root-dir>  -g <options>' % sys.argv[0]
-  print 'Benchmarks:'
+  print('Run benchmark under the Sniper simulator')
+  print('Usage:')
+  print('  %s  -p <program>  -i <inputsize (test)> -n <ncores (1)>  -m <machines (1)>  -d <outputdir (.)>  -c <config-file>  -r <sniper-root-dir>  -g <options>' % sys.argv[0])
+  print('Benchmarks:')
   for module in sorted(modules):
     module = __import__(module)
-    print ' ', module.__name__ + ':'
+    print(' ', module.__name__ + ':')
     try:
-      print '   ', ' '.join(module.allbenchmarks())
+      print('   ', ' '.join(module.allbenchmarks()))
     except TypeError:
-      print 'INFO: %s not downloaded yet, run make to download its components.' % module.__name__
+      print('INFO: %s not downloaded yet, run make to download its components.' % module.__name__)
 
   sys.exit(2)
 
@@ -56,9 +56,9 @@ opts_passthrough = [ 'profile', 'perf', 'gdb', 'gdb-wait', 'gdb-quit', 'appdebug
 
 try:
   opts, args = getopt.getopt(sys.argv[1:], "hvp:i:B:n:m:s:d:c:r:g:", [ "no-roi", "roi-script", "roi", "sim-end=", "save-run", "save-run-prefix=", "save-run-second-stage=", "benchmarks=" ] + opts_passthrough)
-except getopt.GetoptError, e:
+except getopt.GetoptError as e:
   # print help information and exit:
-  print e
+  print(e)
   usage()
 for o, a in opts:
   if o == '-h':
@@ -128,11 +128,11 @@ if ncores is None:
   ncores = 1
 
 if not graphiterootdir:
-  print '\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has not been set. Please set it to continue.\n'
+  print('\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has not been set. Please set it to continue.\n')
   sys.exit(1)
 
 if not os.path.exists(os.path.realpath(os.path.join(graphiterootdir, 'run-sniper'))):
-  print '\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has been set to the wrong directory. Please set it to a directory containing Sniper to continue.\n'
+  print('\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has been set to the wrong directory. Please set it to a directory containing Sniper to continue.\n')
   sys.exit(1)
 
 # This command will always succeed
@@ -140,11 +140,11 @@ benchmarksrootdir = env_setup_bm.benchmarks_root()
 os.putenv('BENCHMARKS_ROOT', benchmarksrootdir)
 
 if not graphiterootdir:
-  print '\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has not been set. Please set it to continue.\n'
+  print('\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has not been set. Please set it to continue.\n')
   sys.exit(1)
 
 if not os.path.exists(os.path.realpath(os.path.join(graphiterootdir, 'run-sniper'))):
-  print '\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has been set to the wrong directory. Please set it to a directory containing Sniper to continue.\n'
+  print('\nERROR: The SNIPER_ROOT or GRAPHITE_ROOT environment variable has been set to the wrong directory. Please set it to a directory containing Sniper to continue.\n')
   sys.exit(1)
 
 # Has Sniper been compiled
@@ -154,7 +154,7 @@ for b in bins:
   if os.path.exists(os.path.realpath(os.path.join(graphiterootdir, 'lib', b))):
     found = True
 if not found:
-  print '\nERROR: Sniper has not been compiled. Please compile Sniper before trying to run an application.\n'
+  print('\nERROR: Sniper has not been compiled. Please compile Sniper before trying to run an application.\n')
   sys.exit(1)
 
 # Create the output directory if it doesn't already exist
@@ -163,7 +163,7 @@ if not os.path.exists(outputdir):
   try:
     os.makedirs(outputdir)
   except OSError:
-    print >> sys.stderr, 'Failed to create output directory', outputdir
+    print('Failed to create output directory', outputdir, file=sys.stderr)
     sys.exit(1)
 
 if saverun_second_stage:
@@ -191,7 +191,7 @@ elif saverun:
   except:
     pass
   os.symlink(str(runnum),symlink)
-  print '[SNIPER] Saving run to', runpath
+  print('[SNIPER] Saving run to', runpath)
 
   # Now run run-sniper again, with the directory we've just chosen, redirecting stdout and stderr
   cmd = ' '.join(map(pipes.quote, sys.argv)) \
@@ -209,10 +209,10 @@ if graphiterootdir == (os.getenv('SNIPER_ROOT') or os.getenv('GRAPHITE_ROOT')):
   graphite_selected = os.path.realpath(os.path.join(graphiterootdir, 'lib', 'pin_sim.so'))
   graphite_here = os.path.realpath(os.path.join('lib', 'pin_sim.so'))
   if os.path.exists(graphite_here) and graphite_selected != graphite_here:
-    print '\nWARNING: Sniper binary found in current directory, but set to use SNIPER_ROOT which points elsewhere!\n'
-    print '   current directory =', os.getcwd()
-    print '   using SNIPER_ROOT/GRAPHITE_ROOT =', (os.getenv('SNIPER_ROOT') or os.getenv('GRAPHITE_ROOT'))
-    print ''
+    print('\nWARNING: Sniper binary found in current directory, but set to use SNIPER_ROOT which points elsewhere!\n')
+    print('   current directory =', os.getcwd())
+    print('   using SNIPER_ROOT/GRAPHITE_ROOT =', (os.getenv('SNIPER_ROOT') or os.getenv('GRAPHITE_ROOT')))
+    print('')
     time.sleep(5)
 
 # Explicitly set both SNIPER_ROOT and GRAPHITE_ROOT to the selected directory to avoid
@@ -288,7 +288,7 @@ try:
     for app_id, (package, programname, inputsize, app_nthreads) in enumerate(benchmarks):
       program = __import__(package).Program(programname, int(app_nthreads), inputsize, ['force_nthreads'])
       if program.rungraphiteoptions():
-        print 'Program', programname, 'requires simulator options to run.  This is currently unsupported.'
+        print('Program', programname, 'requires simulator options to run.  This is currently unsupported.')
         sys.exit(1)
       tracecmd = '%s %s --routine-tracing -o %s -e 1 -r 1 -s %u %s -- ' % (os.path.join(graphiterootdir, 'record-trace'), verbose and '-v' or '', os.path.join(tracetempdir,basefname), app_id, roi_only and '--roi' or '')
       applications.append({'app_id': app_id, 'func': program.run, 'args': tracecmd })
@@ -306,12 +306,12 @@ try:
     except OSError:
       pass
   sys.exit(rc)
-except KeyboardInterrupt, e:
-  print >> sys.stderr, '\nCtrl-C detected: Killing all child processes'
+except KeyboardInterrupt as e:
+  print('\nCtrl-C detected: Killing all child processes', file=sys.stderr)
   graphite_tools.kill_children()
   sys.exit(-1)
-except Exception, e:
-  print e
+except Exception as e:
+  print(e)
   traceback.print_exc(file=sys.stdout)
   graphite_tools.kill_children()
   sys.exit(-1)

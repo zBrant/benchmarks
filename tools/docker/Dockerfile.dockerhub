@@ -62,10 +62,13 @@ RUN yum update -y && \
       && \
     yum clean all && \
     rm -rf /tmp/* /var/tmp/*
+
+ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
+
 # Install Python 2.7
 RUN cd /tmp && \
-    wget -O - https://www.python.org/ftp/python/2.7.10/Python-2.7.10.tgz | tar -x -f - -z && \
-    cd Python-2.7.10 && \
+    wget -O - https://www.python.org/ftp/python/3.12.12/Python-3.12.12.tgz | tar -x -f - -z && \
+    cd Python-3.12.12 && \
     ./configure --prefix=/usr/local && \
     make install && \
     cd / && \
@@ -87,7 +90,7 @@ RUN useradd --create-home -s /bin/bash user
 USER user
 WORKDIR /home/user
 # Enable gcc-4.8 as the default
-ENV PATH=/opt/rh/devtoolset-2/root/usr/bin/:$PATH
+#ENV PATH=/opt/rh/devtoolset-2/root/usr/bin/:$PATH
 # Enable gcc-7 as the default
 #ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
 # Download the Benchmarks

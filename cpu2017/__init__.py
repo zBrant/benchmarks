@@ -347,7 +347,7 @@ class Program:
 
       try:
         index = int(index)
-      except ValueError, e:
+      except ValueError as e:
         if program in name_to_input_index:
           inps = name_to_input_index[program]
           if inputsize in inps:
@@ -387,16 +387,16 @@ class Program:
         for filename in os.listdir(datadir):
           filename = os.path.abspath(os.path.join(datadir, filename))
           os.symlink(filename, os.path.join(rundir,os.path.basename(filename)))
-      # Additional preparation for some benchmarks
-      if self.program == 'wrf_r':
-	    for datadir in (os.path.join('data','all','input','le','32'),):
-          datadir = os.path.abspath(os.path.join(HOME,'CPU2017',name_to_dir[self.program],datadir))
-          if not os.path.exists(datadir):
-	        raise Exception('Unable to find wrf-specific files')
-	      for filename in os.listdir(datadir):
-	        filename = os.path.abspath(os.path.join(datadir, filename))
-	        os.symlink(filename, os.path.join(rundir,os.path.basename(filename)))
-      input_filenames = []
+          # Additional preparation for some benchmarks
+          if self.program == 'wrf_r':
+            for datadir in (os.path.join('data','all','input','le','32'),):
+              datadir = os.path.abspath(os.path.join(HOME,'CPU2017',name_to_dir[self.program],datadir))
+              if not os.path.exists(datadir):
+                raise Exception('Unable to find wrf-specific files')
+              for filename in os.listdir(datadir):
+                filename = os.path.abspath(os.path.join(datadir, filename))
+                os.symlink(filename, os.path.join(rundir,os.path.basename(filename)))
+          input_filenames = []
       for indir in ('all', self.inputsize):
         try:
           input_filenames += os.listdir(os.path.join(HOME,'CPU2017',name_to_dir[self.program],'data',indir,'input'))
@@ -406,7 +406,7 @@ class Program:
       cmd_to_run = subprocess.Popen(omp_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].split(' ',1)
       cmd_to_run = ' '.join([os.path.join(rundir,cmd_to_run[0]),len(cmd_to_run) == 2 and cmd_to_run[1] or ''])
     except Exception as e:
-      print ('Error: ' + str(e) + ' in %s' % __file__)
+      print('Error: ' + str(e) + ' in %s' % __file__)
       os.chdir(origcwd)
       if rundir != None:
         os.system('rm -rf "%s"' % rundir)
@@ -430,11 +430,11 @@ def run(cmd):
   return rc
 
 def run_bm(bm, cmd, submit, env, postcmd = ''):
-  print '[CPU2017]', '[========== Running benchmark', bm, '==========]'
+  print('[CPU2017]', '[========== Running benchmark', bm, '==========]')
   cmd = env + ' ' + submit + ' ' + cmd + ' ' + postcmd
-  print '[CPU2017]', 'Running \'' + cmd + '\':'
-  print '[CPU2017]', '[---------- Beginning of output ----------]'
+  print('[CPU2017]', 'Running \'' + cmd + '\':')
+  print('[CPU2017]', '[---------- Beginning of output ----------]')
   rc = run(cmd)
-  print '[CPU2017]', '[----------    End of output    ----------]'
-  print '[CPU2017]', 'Done.'
+  print('[CPU2017]', '[----------    End of output    ----------]')
+  print('[CPU2017]', 'Done.')
   return rc
