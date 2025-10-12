@@ -339,23 +339,21 @@ class Program:
 
   def __init__(self, program, nthreads, inputsize, benchmark_options = []):
     origprogram = program
-    if '_' in program:
+    index = 0
+
+    if program.count('_') == 2:
       pgm = program.split('_', 1)
       program = pgm[0]
       origindex = pgm[1]
       index = origindex
 
       try:
-        index = int(index)
+        index = int(origindex)
       except ValueError as e:
-        if program in name_to_input_index:
-          inps = name_to_input_index[program]
-          if inputsize in inps:
-            idxs = inps[inputsize]
-            if index in idxs:
-              index = idxs.index(index)
-    else:
-      index = 0
+        inps = name_to_input_index[program] if program in name_to_input_index else None
+        idxs = inps[inputsize] if inputsize in inps else None
+        index = idxs.index(origindex) if idxs != None else 0
+
     if program not in allbenchmarks():
       raise ValueError("Invalid benchmark %s" % program)
     if inputsize not in allinputs():
@@ -403,7 +401,7 @@ class Program:
         except OSError:
           pass
       omp_cmd = '%s/run_spec.pl --name %s --exe %s --size %s --index %s ' % (HOME, self.program, name_to_exe(self.program), self.inputsize, self.index) + ' '.join(map(lambda x: '--input %s' % x, sorted(input_filenames)))
-      cmd_to_run = subprocess.Popen(omp_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].split(' ',1)
+      cmd_to_run = subprocess.Popen(omp_cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].decode('utf-8').split(' ',1)
       cmd_to_run = ' '.join([os.path.join(rundir,cmd_to_run[0]),len(cmd_to_run) == 2 and cmd_to_run[1] or ''])
     except Exception as e:
       print('Error: ' + str(e) + ' in %s' % __file__)
