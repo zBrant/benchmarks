@@ -1,0 +1,536 @@
+TUNE=base
+LABEL=primeiro-teste-m64
+NUMBER=621
+NAME=wrf_s
+SOURCES= ESMF_Alarm.F90 ESMF_AlarmClock.F90 ESMF_Base.F90 \
+	 ESMF_BaseTime.F90 ESMF_Calendar.F90 ESMF_Clock.F90 ESMF_Fraction.F90 \
+	 ESMF_Mod.F90 ESMF_Stubs.F90 ESMF_Time.F90 ESMF_TimeInterval.F90 Meat.F90 \
+	 adapt_timestep_em.F90 alloc_2d.c apply_bitmap.c bobrand.c c1f2kb.F90 \
+	 c1f2kf.F90 c1f3kb.F90 c1f3kf.F90 c1f4kb.F90 c1f4kf.F90 c1f5kb.F90 \
+	 c1f5kf.F90 c1fgkb.F90 c1fgkf.F90 c1fm1b.F90 c1fm1f.F90 c_code.c \
+	 cfft1b.F90 cfft1i.F90 cfftmb.F90 cfftmf.F90 cfftmi.F90 cmf2kb.F90 \
+	 cmf2kf.F90 cmf3kb.F90 cmf3kf.F90 cmf4kb.F90 cmf4kf.F90 cmf5kb.F90 \
+	 cmf5kf.F90 cmfgkb.F90 cmfgkf.F90 cmfm1b.F90 cmfm1f.F90 collect_on_comm.c \
+	 cosq1b.F90 cosq1f.F90 cosq1i.F90 cosqb1.F90 cosqf1.F90 cosqmb.F90 \
+	 cosqmf.F90 cosqmi.F90 couple_or_uncouple_em.F90 d1f2kb.F90 d1f2kf.F90 \
+	 d1f3kb.F90 d1f3kf.F90 d1f4kb.F90 d1f4kf.F90 d1f5kb.F90 d1f5kf.F90 \
+	 d1fgkb.F90 d1fgkf.F90 data.c dfft1b.F90 dfft1f.F90 dfft1i.F90 dfftb1.F90 \
+	 dfftf1.F90 dffti1.F90 dfi.F90 field_routines.F90 flt2ieee.c gbyte.c \
+	 get_region_center.c grib1_routines.c grib_dec.c grib_enc.c grib_seek.c \
+	 grib_uthin.c gribgetbds.c gribgetbms.c gribgetgds.c gribgetpds.c \
+	 gribhdr2file.c gribmap.c gribputbds.c gribputgds.c gribputpds.c \
+	 gridnav.c hires_timer.c init_dec_struct.c init_gribhdr.c \
+	 init_modules.F90 init_modules_em.F90 input_wrf.F90 interp_fcn.F90 \
+	 io_int.F90 io_int_idx.c landread.c ld_dec_lookup.c ld_grib_origctrs.c \
+	 libmassv.F90 mcsqb1.F90 mcsqf1.F90 mediation_feedback_domain.F90 \
+	 mediation_force_domain.F90 mediation_integrate.F90 \
+	 mediation_interp_domain.F90 mediation_wrfmain.F90 misc.c \
+	 module_advect_em.F90 module_after_all_rk_steps.F90 \
+	 module_alloc_space_0.F90 module_alloc_space_1.F90 \
+	 module_alloc_space_2.F90 module_alloc_space_3.F90 \
+	 module_alloc_space_4.F90 module_alloc_space_5.F90 \
+	 module_alloc_space_6.F90 module_alloc_space_7.F90 \
+	 module_alloc_space_8.F90 module_alloc_space_9.F90 module_avgflx_em.F90 \
+	 module_bc.F90 module_bc_em.F90 module_bc_time_utilities.F90 \
+	 module_big_step_utilities_em.F90 module_bl_acm.F90 module_bl_boulac.F90 \
+	 module_bl_camuwpbl_driver.F90 module_bl_fogdes.F90 module_bl_gbmpbl.F90 \
+	 module_bl_gfs.F90 module_bl_gfs2011.F90 module_bl_gwdo.F90 \
+	 module_bl_mfshconvpbl.F90 module_bl_mrf.F90 module_bl_myjpbl.F90 \
+	 module_bl_myjurb.F90 module_bl_mynn.F90 module_bl_qnsepbl.F90 \
+	 module_bl_qnsepbl09.F90 module_bl_temf.F90 module_bl_ysu.F90 \
+	 module_cam_bl_diffusion_solver.F90 module_cam_bl_eddy_diff.F90 \
+	 module_cam_cldwat.F90 module_cam_constituents.F90 \
+	 module_cam_error_function.F90 module_cam_esinti.F90 \
+	 module_cam_gffgch.F90 module_cam_molec_diff.F90 \
+	 module_cam_mp_cldwat2m_micro.F90 module_cam_mp_conv_water.F90 \
+	 module_cam_mp_microp_aero.F90 \
+	 module_cam_mp_modal_aero_initialize_data_phys.F90 \
+	 module_cam_mp_ndrop.F90 module_cam_mp_qneg3.F90 \
+	 module_cam_mp_radconstants.F90 module_cam_physconst.F90 \
+	 module_cam_shr_const_mod.F90 module_cam_shr_kind_mod.F90 \
+	 module_cam_support.F90 module_cam_trb_mtn_stress.F90 \
+	 module_cam_upper_bc.F90 module_cam_wv_saturation.F90 \
+	 module_check_a_mundo.F90 module_comm_dm.F90 module_comm_dm_0.F90 \
+	 module_comm_dm_1.F90 module_comm_dm_2.F90 module_comm_dm_3.F90 \
+	 module_comm_dm_4.F90 module_comm_nesting_dm.F90 module_configure.F90 \
+	 module_convtrans_prep.F90 module_cpl.F90 module_cpl_oasis3.F90 \
+	 module_cu_bmj.F90 module_cu_camzm.F90 module_cu_camzm_driver.F90 \
+	 module_cu_g3.F90 module_cu_gd.F90 module_cu_gf.F90 module_cu_kf.F90 \
+	 module_cu_kfeta.F90 module_cu_mesosas.F90 module_cu_nsas.F90 \
+	 module_cu_osas.F90 module_cu_sas.F90 module_cu_tiedtke.F90 \
+	 module_cumulus_driver.F90 module_damping_em.F90 \
+	 module_data_cam_mam_aero.F90 module_data_cam_mam_asect.F90 \
+	 module_data_gocart_dust.F90 module_date_time.F90 module_diag_afwa.F90 \
+	 module_diag_afwa_hail.F90 module_diag_cl.F90 module_diag_misc.F90 \
+	 module_diag_pld.F90 module_diagnostics_driver.F90 \
+	 module_diffusion_em.F90 module_dm.F90 module_domain.F90 \
+	 module_domain_type.F90 module_driver_constants.F90 module_em.F90 \
+	 module_fdda_psufddagd.F90 module_fdda_spnudging.F90 \
+	 module_fddagd_driver.F90 module_fddaobs_driver.F90 \
+	 module_fddaobs_rtfdda.F90 module_first_rk_step_part1.F90 \
+	 module_first_rk_step_part2.F90 module_force_scm.F90 \
+	 module_fr_fire_atm.F90 module_fr_fire_core.F90 module_fr_fire_driver.F90 \
+	 module_fr_fire_driver_wrf.F90 module_fr_fire_model.F90 \
+	 module_fr_fire_phys.F90 module_fr_fire_util.F90 module_gfs_funcphys.F90 \
+	 module_gfs_machine.F90 module_gfs_physcons.F90 module_init_utilities.F90 \
+	 module_integrate.F90 module_intermediate_nmm.F90 \
+	 module_internal_header_util.F90 module_interp_store.F90 module_io.F90 \
+	 module_io_domain.F90 module_io_quilt.F90 module_io_wrf.F90 \
+	 module_lightning_driver.F90 module_llxy.F90 module_ltng_cpmpr92z.F90 \
+	 module_ltng_crmpr92.F90 module_ltng_iccg.F90 module_ltng_lpi.F90 \
+	 module_machine.F90 module_microphysics_driver.F90 \
+	 module_microphysics_zero_out.F90 module_mixactivate.F90 \
+	 module_model_constants.F90 module_mp_HWRF.F90 \
+	 module_mp_cammgmp_driver.F90 module_mp_etanew.F90 module_mp_etaold.F90 \
+	 module_mp_fast_sbm.F90 module_mp_full_sbm.F90 module_mp_gsfcgce.F90 \
+	 module_mp_kessler.F90 module_mp_lin.F90 module_mp_milbrandt2mom.F90 \
+	 module_mp_morr_two_moment.F90 module_mp_nssl_2mom.F90 \
+	 module_mp_radar.F90 module_mp_sbu_ylin.F90 module_mp_thompson.F90 \
+	 module_mp_wdm5.F90 module_mp_wdm6.F90 module_mp_wsm3.F90 \
+	 module_mp_wsm5.F90 module_mp_wsm6.F90 module_nesting.F90 \
+	 module_optional_input.F90 module_pbl_driver.F90 \
+	 module_physics_addtendc.F90 module_physics_init.F90 module_polarfft.F90 \
+	 module_progtm.F90 module_quilt_outbuf_ops.F90 module_ra_HWRF.F90 \
+	 module_ra_aerosol.F90 module_ra_cam.F90 module_ra_cam_support.F90 \
+	 module_ra_clWRF_support.F90 module_ra_flg.F90 module_ra_gfdleta.F90 \
+	 module_ra_goddard.F90 module_ra_gsfcsw.F90 module_ra_hs.F90 \
+	 module_ra_rrtm.F90 module_ra_sw.F90 module_radiation_driver.F90 \
+	 module_sf_3dpwp.F90 module_sf_bem.F90 module_sf_bep.F90 \
+	 module_sf_bep_bem.F90 module_sf_clm.F90 module_sf_fogdes.F90 \
+	 module_sf_gfdl.F90 module_sf_gfs.F90 module_sf_idealscmsfclay.F90 \
+	 module_sf_lake.F90 module_sf_myjsfc.F90 module_sf_mynn.F90 \
+	 module_sf_noah_seaice.F90 module_sf_noah_seaice_drv.F90 \
+	 module_sf_noahdrv.F90 module_sf_noahlsm.F90 \
+	 module_sf_noahlsm_glacial_only.F90 module_sf_noahmp_glacier.F90 \
+	 module_sf_noahmp_groundwater.F90 module_sf_noahmpdrv.F90 \
+	 module_sf_noahmplsm.F90 module_sf_ocean_driver.F90 module_sf_oml.F90 \
+	 module_sf_pxlsm.F90 module_sf_pxlsm_data.F90 module_sf_pxsfclay.F90 \
+	 module_sf_qnsesfc.F90 module_sf_ruclsm.F90 module_sf_scmflux.F90 \
+	 module_sf_scmskintemp.F90 module_sf_sfcdiags.F90 \
+	 module_sf_sfcdiags_ruclsm.F90 module_sf_sfclay.F90 \
+	 module_sf_sfclayrev.F90 module_sf_slab.F90 module_sf_ssib.F90 \
+	 module_sf_sstskin.F90 module_sf_temfsfclay.F90 module_sf_tmnupdate.F90 \
+	 module_sf_urban.F90 module_shallowcu_driver.F90 \
+	 module_shcu_camuwshcu.F90 module_shcu_camuwshcu_driver.F90 \
+	 module_shcu_grims.F90 module_small_step_em.F90 module_soil_pre.F90 \
+	 module_solvedebug_em.F90 module_state_description.F90 module_stoch.F90 \
+	 module_streams.F90 module_surface_driver.F90 module_symbols_util.F90 \
+	 module_tiles.F90 module_timing.F90 module_utility.F90 \
+	 module_wind_fitch.F90 module_wrf_error.F90 module_wrf_top.F90 mradb2.F90 \
+	 mradb3.F90 mradb4.F90 mradb5.F90 mradbg.F90 mradf2.F90 mradf3.F90 \
+	 mradf4.F90 mradf5.F90 mradfg.F90 mrftb1.F90 mrftf1.F90 mrfti1.F90 \
+	 msntb1.F90 msntf1.F90 my_strtok.c nest_init_utils.F90 netcdf/attr.c \
+	 netcdf/dim.c netcdf/error.c netcdf/fort-attio.c netcdf/fort-control.c \
+	 netcdf/fort-dim.c netcdf/fort-genatt.c netcdf/fort-geninq.c \
+	 netcdf/fort-genvar.c netcdf/fort-lib.c netcdf/fort-misc.c \
+	 netcdf/fort-varaio.c netcdf/libvers.c netcdf/nc.c netcdf/ncio.c \
+	 netcdf/ncx.c netcdf/putget.c netcdf/string.c netcdf/v1hpg.c netcdf/v2i.c \
+	 netcdf/var.c nl_get_0_routines.F90 nl_get_1_routines.F90 \
+	 nl_get_2_routines.F90 nl_get_3_routines.F90 nl_get_4_routines.F90 \
+	 nl_get_5_routines.F90 nl_get_6_routines.F90 nl_get_7_routines.F90 \
+	 nl_set_0_routines.F90 nl_set_1_routines.F90 nl_set_2_routines.F90 \
+	 nl_set_6_routines.F90 nl_set_7_routines.F90 output_wrf.F90 \
+	 pack_spatial.c pack_utils.c period.c r1f2kb.F90 r1f2kf.F90 r1f3kb.F90 \
+	 r1f3kf.F90 r1f4kb.F90 r1f4kf.F90 r1f5kb.F90 r1f5kf.F90 r1fgkb.F90 \
+	 r1fgkf.F90 r4_factor.F90 r4_mcfti1.F90 r4_tables.F90 r8_factor.F90 \
+	 r8_mcfti1.F90 r8_tables.F90 read_grib.c reg_parse.c rfft1b.F90 \
+	 rfft1f.F90 rfft1i.F90 rfftb1.F90 rfftf1.F90 rffti1.F90 rfftmb.F90 \
+	 rfftmf.F90 rfftmi.F90 rsl_bcast.c set_bytes.c set_timekeeping.F90 \
+	 setfeenv.c sint.F90 solve_em.F90 solve_interface.F90 start_domain.F90 \
+	 start_em.F90 symtab_gen.c task_for_point.c track_driver.F90 \
+	 track_input.F90 trim.c type.c upd_child_errmsg.c wrf.F90 wrf_bdyin.F90 \
+	 wrf_bdyout.F90 wrf_debug.F90 wrf_ext_read_field.F90 \
+	 wrf_ext_write_field.F90 wrf_fddaobs_in.F90 wrf_io.F90 \
+	 wrf_num_bytes_between.c wrf_shutdown.F90 wrf_timeseries.F90 wrf_tsin.F90 \
+	 xercon.F90 xerfft.F90 z1f2kb.F90 z1f2kf.F90 z1f3kb.F90 z1f3kf.F90 \
+	 z1f4kb.F90 z1f4kf.F90 z1f5kb.F90 z1f5kf.F90 z1fgkb.F90 z1fgkf.F90 \
+	 z1fm1b.F90 z1fm1f.F90 zmf2kb.F90 zmf2kf.F90 zmf3kb.F90 zmf3kf.F90 \
+	 zmf4kb.F90 zmf4kf.F90 zmf5kb.F90 zmf5kf.F90 zmfgkb.F90 zmfgkf.F90
+EXEBASE=wrf_s
+NEED_MATH=
+BENCHLANG=F C
+
+BENCH_CFLAGS     = -DSPEC_AUTO_BYTEORDER=0x12345678
+BENCH_FLAGS      = -I. -I./inc -I./netcdf/include -DDM_PARALLEL -DSTUBMPI
+BENCH_FPPFLAGS   = -w -m literal.pm -I. -I./inc -I./netcdf/include -DDM_PARALLEL -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNETCDF -DINTIO -DCONFIG_BUF_LEN=32768 -DMAX_DOMAINS_F=21 -DNMM_NEST=0 -DMAX_HISTORY=25
+CC               = $(SPECLANG)gcc     -std=c99   -m64
+CC_VERSION_OPTION = -v
+CPORTABILITY     = -DSPEC_CASE_FLAG
+CXX              = $(SPECLANG)g++     -std=c++03 -m64
+CXX_VERSION_OPTION = -v
+EXTRA_OPTIMIZE   = -fopenmp -DSPEC_OPENMP
+EXTRA_PORTABILITY = -DSPEC_LP64
+FC               = $(SPECLANG)gfortran           -m64
+FC_VERSION_OPTION = -v
+FPORTABILITY     = -fconvert=big-endian
+OPTIMIZE         = -g -O3 -march=native -fno-unsafe-math-optimizations  -fno-tree-loop-vectorize
+OS               = unix
+SPECLANG         = /usr/bin/
+absolutely_no_locking = 0
+abstol           = 
+action           = buildsetup
+allow_label_override = 0
+backup_config    = 1
+baseexe          = wrf_s
+basepeak         = 1
+benchdir         = benchspec
+benchmark        = 621.wrf_s
+bindir           = exe
+builddir         = build
+bundleaction     = 
+bundlename       = 
+calctol          = 0
+changedhash      = 0
+check_version    = 0
+clean_between_builds = no
+command_add_redirect = 1
+commanderrfile   = speccmds.err
+commandexe       = wrf_s_base.primeiro-teste-m64
+commandfile      = speccmds.cmd
+commandoutfile   = speccmds.out
+commandstdoutfile = speccmds.stdout
+comparedir       = compare
+compareerrfile   = compare.err
+comparefile      = compare.cmd
+compareoutfile   = compare.out
+comparestdoutfile = compare.stdout
+compile_error    = 0
+compwhite        = 1
+configdir        = config
+configfile       = default.cfg
+configpath       = /home/kratos/specs/2017/config/default.cfg
+copies           = 1
+current_range    = 
+datadir          = data
+default_size     = ref
+default_submit   = $command
+delay            = 0
+deletebinaries   = 0
+deletework       = 0
+dependent_workloads = 0
+device           = 
+difflines        = 10
+dirprot          = 511
+discard_power_samples = 0
+enable_monitor   = 1
+endian           = 12345678
+env_vars         = 0
+expand_notes     = 0
+expid            = 
+exthash_bits     = 256
+failflags        = 0
+fake             = 0
+feedback         = 1
+flag_url_base    = https://www.spec.org/auto/cpu2017/Docs/benchmarks/flags/
+floatcompare     = 
+force_monitor    = 0
+from_runcpu      = 2
+fw_bios          = virtualbox
+hostname         = six-seven
+http_proxy       = 
+http_timeout     = 30
+hw_avail         = Ago-2025
+hw_cpu_max_mhz   = 4100
+hw_cpu_name      = AMD Ryzen 7 5700X3D
+hw_cpu_nominal_mhz = 3000
+hw_disk          = 1 TB SSD NVMe
+hw_memory001     = 16 GB (1 x 16 GB DDR4-3200)
+hw_memory002     = 'N GB (N x N GB nRxn PC4-nnnnX-X)'
+hw_model         = 'Test Build'
+hw_nchips        = 1
+hw_ncores        = 5
+hw_ncpuorder     = 1-5 chips
+hw_nthreadspercore = 2
+hw_ocache        = None
+hw_other         = None
+hw_pcache        = 64 KB I + 64 KB D on chip per core
+hw_scache        = 512 KB I+D on chip per core
+hw_tcache        = 96 MB I+D on chip
+hw_vendor        = My Test
+idle_current_range = 
+idledelay        = 10
+idleduration     = 60
+ignore_errors    = 1
+ignore_sigint    = 0
+ignorecase       = 
+info_wrap_columns = 50
+inputdir         = input
+inputgenerrfile  = inputgen.err
+inputgenfile     = inputgen.cmd
+inputgenoutfile  = inputgen.out
+inputgenstdoutfile = inputgen.stdout
+iteration        = -1
+iterations       = 1
+keeptmp          = 0
+label            = primeiro-teste-m64
+license_num      = 2017
+line_width       = 1020
+link_input_files = 1
+locking          = 1
+log              = CPU2017
+log_line_width   = 1020
+log_timestamp    = 0
+logfile          = /home/kratos/specs/2017/tmp/CPU2017.002/templogs/preenv.fpspeed.002.1
+logname          = /home/kratos/specs/2017/tmp/CPU2017.002/templogs/preenv.fpspeed.002.1
+lognum           = 002.1
+mail_reports     = all
+mailcompress     = 0
+mailmethod       = smtp
+mailport         = 25
+mailserver       = 127.0.0.1
+mailto           = 
+make             = specmake
+make_no_clobber  = 0
+makefile_template = Makefile.YYYtArGeTYYYspec
+makeflags        = --jobs=8
+max_average_uncertainty = 1
+max_hum_limit    = 0
+max_report_runs  = 3
+max_unknown_uncertainty = 1
+mean_anyway      = 1
+meter_connect_timeout = 30
+meter_errors_default = 5
+meter_errors_percentage = 5
+min_report_runs  = 2
+min_temp_limit   = 20
+minimize_builddirs = 0
+minimize_rundirs = 0
+name             = wrf_s
+nansupport       = 
+need_math        = 
+no_input_handler = close
+no_monitor       = 
+noratios         = 0
+note_preenv      = 1
+notes_plat_sysinfo_000 = 
+notes_plat_sysinfo_005 =  Sysinfo program /home/kratos/specs/2017/bin/sysinfo
+notes_plat_sysinfo_010 =  Rev: r6365 of 2019-08-21 295195f888a3d7edb1e6e46a485a0011
+notes_plat_sysinfo_015 =  running on six-seven Sat Oct 11 18:48:53 2025
+notes_plat_sysinfo_020 = 
+notes_plat_sysinfo_025 =  SUT (System Under Test) info as seen by some common utilities.
+notes_plat_sysinfo_030 =  For more information on this section, see
+notes_plat_sysinfo_035 =     https://www.spec.org/cpu2017/Docs/config.html\#sysinfo
+notes_plat_sysinfo_040 = 
+notes_plat_sysinfo_045 =  From /proc/cpuinfo
+notes_plat_sysinfo_050 =     model name : AMD Ryzen 7 5700X3D 8-Core Processor
+notes_plat_sysinfo_055 =        1  "physical id"s (chips)
+notes_plat_sysinfo_060 =        5 "processors"
+notes_plat_sysinfo_065 =     cores, siblings (Caution: counting these is hw and system dependent. The following
+notes_plat_sysinfo_070 =     excerpts from /proc/cpuinfo might not be reliable.  Use with caution.)
+notes_plat_sysinfo_075 =        cpu cores : 5
+notes_plat_sysinfo_080 =        siblings  : 5
+notes_plat_sysinfo_085 =        physical 0: cores 0 1 2 3 4
+notes_plat_sysinfo_090 = 
+notes_plat_sysinfo_095 =  From lscpu:
+notes_plat_sysinfo_100 =       Architecture:                            x86_64
+notes_plat_sysinfo_105 =       CPU op-mode(s):                          32-bit, 64-bit
+notes_plat_sysinfo_110 =       Address sizes:                           48 bits physical, 48 bits virtual
+notes_plat_sysinfo_115 =       Byte Order:                              Little Endian
+notes_plat_sysinfo_120 =       CPU(s):                                  5
+notes_plat_sysinfo_125 =       On-line CPU(s) list:                     0-4
+notes_plat_sysinfo_130 =       Vendor ID:                               AuthenticAMD
+notes_plat_sysinfo_135 =       Model name:                              AMD Ryzen 7 5700X3D 8-Core Processor
+notes_plat_sysinfo_140 =       CPU family:                              25
+notes_plat_sysinfo_145 =       Model:                                   33
+notes_plat_sysinfo_150 =       Thread(s) per core:                      1
+notes_plat_sysinfo_155 =       Core(s) per socket:                      5
+notes_plat_sysinfo_160 =       Socket(s):                               1
+notes_plat_sysinfo_165 =       Stepping:                                2
+notes_plat_sysinfo_170 =       BogoMIPS:                                5999.99
+notes_plat_sysinfo_175 =       Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep
+notes_plat_sysinfo_180 =       mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt
+notes_plat_sysinfo_185 =       rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq
+notes_plat_sysinfo_190 =       pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c
+notes_plat_sysinfo_195 =       rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch
+notes_plat_sysinfo_200 =       vmmcall fsgsbase bmi1 avx2 bmi2 invpcid rdseed adx clflushopt sha_ni arat debug_swap
+notes_plat_sysinfo_205 =       Hypervisor vendor:                       KVM
+notes_plat_sysinfo_210 =       Virtualization type:                     full
+notes_plat_sysinfo_215 =       L1d cache:                               160 KiB (5 instances)
+notes_plat_sysinfo_220 =       L1i cache:                               160 KiB (5 instances)
+notes_plat_sysinfo_225 =       L2 cache:                                2.5 MiB (5 instances)
+notes_plat_sysinfo_230 =       L3 cache:                                480 MiB (5 instances)
+notes_plat_sysinfo_235 =       NUMA node(s):                            1
+notes_plat_sysinfo_240 =       NUMA node0 CPU(s):                       0-4
+notes_plat_sysinfo_245 =       Vulnerability Gather data sampling:      Not affected
+notes_plat_sysinfo_250 =       Vulnerability Ghostwrite:                Not affected
+notes_plat_sysinfo_255 =       Vulnerability Indirect target selection: Not affected
+notes_plat_sysinfo_260 =       Vulnerability Itlb multihit:             Not affected
+notes_plat_sysinfo_265 =       Vulnerability L1tf:                      Not affected
+notes_plat_sysinfo_270 =       Vulnerability Mds:                       Not affected
+notes_plat_sysinfo_275 =       Vulnerability Meltdown:                  Not affected
+notes_plat_sysinfo_280 =       Vulnerability Mmio stale data:           Not affected
+notes_plat_sysinfo_285 =       Vulnerability Reg file data sampling:    Not affected
+notes_plat_sysinfo_290 =       Vulnerability Retbleed:                  Not affected
+notes_plat_sysinfo_295 =       Vulnerability Spec rstack overflow:      Vulnerable: Safe RET, no microcode
+notes_plat_sysinfo_300 =       Vulnerability Spec store bypass:         Not affected
+notes_plat_sysinfo_305 =       Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and
+notes_plat_sysinfo_310 =       __user pointer sanitization
+notes_plat_sysinfo_315 =       Vulnerability Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB
+notes_plat_sysinfo_320 =       filling; PBRSB-eIBRS Not affected; BHI Not affected
+notes_plat_sysinfo_325 =       Vulnerability Srbds:                     Not affected
+notes_plat_sysinfo_330 =       Vulnerability Tsx async abort:           Not affected
+notes_plat_sysinfo_335 = 
+notes_plat_sysinfo_340 =  /proc/cpuinfo cache data
+notes_plat_sysinfo_345 =     cache size : 512 KB
+notes_plat_sysinfo_350 = 
+notes_plat_sysinfo_355 =  From numactl --hardware  WARNING: a numactl 'node' might or might not correspond to a
+notes_plat_sysinfo_360 =  physical chip.
+notes_plat_sysinfo_365 =    available: 1 nodes (0)
+notes_plat_sysinfo_370 =    node 0 cpus: 0 1 2 3 4
+notes_plat_sysinfo_375 =    node 0 size: 8593 MB
+notes_plat_sysinfo_380 =    node 0 free: 807 MB
+notes_plat_sysinfo_385 =    node distances:
+notes_plat_sysinfo_390 =    node   0
+notes_plat_sysinfo_395 =      0:  10
+notes_plat_sysinfo_400 = 
+notes_plat_sysinfo_405 =  From /proc/meminfo
+notes_plat_sysinfo_410 =     MemTotal:        8799764 kB
+notes_plat_sysinfo_415 =     HugePages_Total:       0
+notes_plat_sysinfo_420 =     Hugepagesize:       2048 kB
+notes_plat_sysinfo_425 = 
+notes_plat_sysinfo_430 =  /usr/bin/lsb_release -d
+notes_plat_sysinfo_435 =     Ubuntu 24.04.3 LTS
+notes_plat_sysinfo_440 = 
+notes_plat_sysinfo_445 =  From /etc/*release* /etc/*version*
+notes_plat_sysinfo_450 =     debian_version: trixie/sid
+notes_plat_sysinfo_455 =     os-release:
+notes_plat_sysinfo_460 =        PRETTY_NAME="Ubuntu 24.04.3 LTS"
+notes_plat_sysinfo_465 =        NAME="Ubuntu"
+notes_plat_sysinfo_470 =        VERSION_ID="24.04"
+notes_plat_sysinfo_475 =        VERSION="24.04.3 LTS (Noble Numbat)"
+notes_plat_sysinfo_480 =        VERSION_CODENAME=noble
+notes_plat_sysinfo_485 =        ID=ubuntu
+notes_plat_sysinfo_490 =        ID_LIKE=debian
+notes_plat_sysinfo_495 =        HOME_URL="https://www.ubuntu.com/"
+notes_plat_sysinfo_500 = 
+notes_plat_sysinfo_505 =  uname -a:
+notes_plat_sysinfo_510 =     Linux six-seven 6.14.0-33-generic \#33~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19
+notes_plat_sysinfo_515 =     17:02:30 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+notes_plat_sysinfo_520 = 
+notes_plat_sysinfo_525 =  Kernel self-reported vulnerability status:
+notes_plat_sysinfo_530 = 
+notes_plat_sysinfo_535 =  gather_data_sampling:                     Not affected
+notes_plat_sysinfo_540 =  ghostwrite:                               Not affected
+notes_plat_sysinfo_545 =  indirect_target_selection:                Not affected
+notes_plat_sysinfo_550 =  itlb_multihit:                            Not affected
+notes_plat_sysinfo_555 =  CVE-2018-3620 (L1 Terminal Fault):        Not affected
+notes_plat_sysinfo_560 =  Microarchitectural Data Sampling:         Not affected
+notes_plat_sysinfo_565 =  CVE-2017-5754 (Meltdown):                 Not affected
+notes_plat_sysinfo_570 =  mmio_stale_data:                          Not affected
+notes_plat_sysinfo_575 =  reg_file_data_sampling:                   Not affected
+notes_plat_sysinfo_580 =  retbleed:                                 Not affected
+notes_plat_sysinfo_585 =  spec_rstack_overflow:                     Vulnerable: Safe RET, no microcode
+notes_plat_sysinfo_590 =  CVE-2018-3639 (Speculative Store Bypass): Not affected
+notes_plat_sysinfo_595 =  CVE-2017-5753 (Spectre variant 1):        Mitigation: usercopy/swapgs barriers and __user
+notes_plat_sysinfo_600 =                                            pointer sanitization
+notes_plat_sysinfo_605 =  CVE-2017-5715 (Spectre variant 2):        Mitigation: Retpolines; STIBP: disabled; RSB
+notes_plat_sysinfo_610 =                                            filling; PBRSB-eIBRS: Not affected; BHI: Not
+notes_plat_sysinfo_615 =                                            affected
+notes_plat_sysinfo_620 =  srbds:                                    Not affected
+notes_plat_sysinfo_625 =  tsx_async_abort:                          Not affected
+notes_plat_sysinfo_630 = 
+notes_plat_sysinfo_635 =  run-level 5 Oct 10 16:07
+notes_plat_sysinfo_640 = 
+notes_plat_sysinfo_645 =  SPEC is set to: /home/kratos/specs/2017
+notes_plat_sysinfo_650 =     Filesystem     Type  Size  Used Avail Use% Mounted on
+notes_plat_sysinfo_655 =     /dev/sda2      ext4   98G   32G   62G  35% /
+notes_plat_sysinfo_660 = 
+notes_plat_sysinfo_665 =  From /sys/devices/virtual/dmi/id
+notes_plat_sysinfo_670 =      BIOS:    innotek GmbH VirtualBox 12/01/2006
+notes_plat_sysinfo_675 =      Vendor:  innotek GmbH
+notes_plat_sysinfo_680 =      Product: VirtualBox
+notes_plat_sysinfo_685 =      Product Family: Virtual Machine
+notes_plat_sysinfo_690 = 
+notes_plat_sysinfo_695 =  Cannot run dmidecode; consider saying (as root)
+notes_plat_sysinfo_700 =     chmod +s /usr/sbin/dmidecode
+notes_plat_sysinfo_705 = 
+notes_plat_sysinfo_710 =  (End of data from sysinfo program)
+notes_wrap_columns = 0
+notes_wrap_indent =   
+num              = 621
+obiwan           = 
+os_exe_ext       = 
+output_format    = txt,html,cfg,pdf,csv
+output_root      = 
+outputdir        = output
+parallel_test    = 0
+parallel_test_submit = 0
+parallel_test_workloads = 
+path             = /home/kratos/specs/2017/benchspec/CPU/621.wrf_s
+plain_train      = 1
+platform         = 
+power            = 0
+preENV_LD_LIBRARY_PATH = %{gcc_dir}/lib64/:%{gcc_dir}/lib/:/lib64
+preENV_OMP_STACKSIZE = 120M
+preenv           = 0
+prefix           = 
+prepared_by      = Watta
+ranks            = 1
+rawhash_bits     = 256
+rebuild          = 0
+reftime          = reftime
+reltol           = 
+reportable       = 0
+resultdir        = result
+review           = 0
+run              = all
+runcpu           = /home/kratos/specs/2017/bin/harness/runcpu --action buildsetup --noreportable --nopower --runmode speed --tune base --size refspeed fpspeed --nopreenv --note-preenv --logfile /home/kratos/specs/2017/tmp/CPU2017.002/templogs/preenv.fpspeed.002.1 --lognum 002.1 --from_runcpu 2
+rundir           = run
+runmode          = speed
+safe_eval        = 1
+save_build_files = 
+section_specifier_fatal = 1
+setprocgroup     = 1
+setup_error      = 0
+sigint           = 2
+size             = refspeed
+size_class       = ref
+skipabstol       = 
+skipobiwan       = 
+skipreltol       = 
+skiptol          = 
+smarttune        = base
+specdiff         = specdiff
+specrun          = specinvoke
+srcalt           = 
+srcdir           = src
+srcsource        = /home/kratos/specs/2017/benchspec/CPU/521.wrf_r/src
+stagger          = 10
+strict_rundir_verify = 1
+sw_avail         = Ago-2025
+sw_base_ptrsize  = 64-bit
+sw_compiler001   = C/C++/Fortran: Version 11.4.0 of GCC, the
+sw_compiler002   = GNU Compiler Collection
+sw_file          = ext4
+sw_os001         = Ubuntu 22.04.5 LTS
+sw_os002         = 6.14.0-33-generic
+sw_other         = None
+sw_peak_ptrsize  = Not Applicable
+sw_state         = 
+sysinfo_hash_bits = 256
+sysinfo_program  = specperl /home/kratos/specs/2017/bin/sysinfo
+sysinfo_program_hash = sysinfo:SHA:1b187da62efa5d65f0e989c214b6a257d16a31d3cf135973c9043da741052207
+table            = 1
+teeout           = 0
+test_date        = Oct-2025
+test_sponsor     = My Test
+tester           = My Test
+threads          = 4
+top              = /home/kratos/specs/2017
+train_single_thread = 0
+train_with       = train
+tune             = base
+uid              = 1000
+unbuffer         = 1
+uncertainty_exception = 5
+update           = 0
+update_url       = http://www.spec.org/auto/cpu2017/updates/
+use_submit_for_compare = 0
+use_submit_for_speed = 0
+username         = kratos
+verbose          = 5
+verify_binaries  = 1
+version          = 1.000503
+voltage_range    = 
+worklist         = list
+OUTPUT_RMFILES   = diffwrf_output_01.txt
