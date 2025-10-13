@@ -7,7 +7,7 @@ HOME = abspath(os.path.dirname(__file__))
 postfix = '_base.sniper-x86_64'
 
 def name_to_exe(name):
-  return name.split('_')[0]+postfix
+  return name+postfix
 
 name_to_dir = {
   'perlbench_r': '500.perlbench_r',

@@ -38,6 +38,26 @@ cp -r ${SPEC_DVD}/bin/* cpu2017/bin/
 
 tar -xf ${SPEC_DVD}/tools/bin/linux-x86_64/tools-linux-x86_64.tar.xz -C cpu2017
 
+cp -r ${SPEC_DVD}/benchspec/CPU/500.perlbench_r/src ${SPEC_DVD}/benchspec/CPU/500.perlbench_r/data cpu2017/CPU2017/600.perlbench_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/502.gcc_r/src ${SPEC_DVD}/benchspec/CPU/502.gcc_r/data cpu2017/CPU2017/602.gcc_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/503.bwaves_r/src ${SPEC_DVD}/benchspec/CPU/503.bwaves_r/data cpu2017/CPU2017/603.bwaves_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/505.mcf_r/src ${SPEC_DVD}/benchspec/CPU/505.mcf_r/data cpu2017/CPU2017/605.mcf_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/507.cactuBSSN_r/src ${SPEC_DVD}/benchspec/CPU/507.cactuBSSN_r/data cpu2017/CPU2017/607.cactuBSSN_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/519.lbm_r/src ${SPEC_DVD}/benchspec/CPU/519.lbm_r/data cpu2017/CPU2017/619.lbm_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/520.omnetpp_r/src ${SPEC_DVD}/benchspec/CPU/520.omnetpp_r/data cpu2017/CPU2017/620.omnetpp_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/521.wrf_r/src ${SPEC_DVD}/benchspec/CPU/521.wrf_r/data cpu2017/CPU2017/621.wrf_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/523.xalancbmk_r/src ${SPEC_DVD}/benchspec/CPU/523.xalancbmk_r/data cpu2017/CPU2017/623.xalancbmk_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/525.x264_r/src ${SPEC_DVD}/benchspec/CPU/525.x264_r/data cpu2017/CPU2017/625.x264_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/527.cam4_r/src ${SPEC_DVD}/benchspec/CPU/527.cam4_r/data cpu2017/CPU2017/627.cam4_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/531.deepsjeng_r/src ${SPEC_DVD}/benchspec/CPU/531.deepsjeng_r/data cpu2017/CPU2017/631.deepsjeng_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/538.imagick_r/src ${SPEC_DVD}/benchspec/CPU/538.imagick_r/data cpu2017/CPU2017/638.imagick_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/541.leela_r/src ${SPEC_DVD}/benchspec/CPU/541.leela_r/data cpu2017/CPU2017/641.leela_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/544.nab_r/src ${SPEC_DVD}/benchspec/CPU/544.nab_r/data cpu2017/CPU2017/644.nab_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/548.exchange2_r/src ${SPEC_DVD}/benchspec/CPU/548.exchange2_r/data cpu2017/CPU2017/648.exchange2_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/549.fotonik3d_r/src ${SPEC_DVD}/benchspec/CPU/549.fotonik3d_r/data cpu2017/CPU2017/649.fotonik3d_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/554.roms_r/src ${SPEC_DVD}/benchspec/CPU/554.roms_r/data cpu2017/CPU2017/654.roms_s/
+cp -r ${SPEC_DVD}/benchspec/CPU/557.xz_r/src ${SPEC_DVD}/benchspec/CPU/557.xz_r/data cpu2017/CPU2017/657.xz_s/
+
 # Fix permissions when sources are copied from a read-only DVD image
 find cpu2017/CPU2017 -type d -exec chmod +w {} \;
 
