@@ -6,7 +6,7 @@ ifeq ($(SNIPER_ROOT),)
 $(error "Error: The SNIPER_ROOT environment variable is not set.")
 endif
 
-.PHONY: all clean dependencies cpu2006_pinballs
+.PHONY: all clean dependencies specs cpu2006_pinballs
 
 all: dependencies
 	make -C tools/hooks
@@ -14,8 +14,10 @@ all: dependencies
 	make -C parsec
 	make -C npb
 	make -C local
+
+specs:
 	make -C cpu2017
-	-make -C cpu2006
+	make -C cpu2006
 
 cpu2006_pinballs:
 	make -C cpu2006_pinballs
@@ -27,7 +29,7 @@ clean:
 	make -C npb clean
 	make -C local clean
 	make -C cpu2017 clean
-	-make -C cpu2006 clean
+	make -C cpu2006 clean
 
 cpu2006_pinballs_clean:
 	make -C cpu2006_pinballs clean

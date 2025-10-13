@@ -47,11 +47,10 @@ for filename, package in DEPENDENCIES:
     if ostype:
       missing.append(package[ostype])
     else:
-      print '*** Cannot find the file %s' % filename
+      print('*** Cannot find the file %s' % filename)
 
 if missing:
-  print >> sys.stderr, '*** Please install the following package%s: %s' % \
-                       (len(missing)>1 and 's' or '', ' '.join(missing))
+  print('*** Please install the following package%s: %s' % (len(missing)>1 and 's' or '', ' '.join(missing)), file=sys.stderr)
   sys.exit(1)
 else:
   sys.exit(0)
