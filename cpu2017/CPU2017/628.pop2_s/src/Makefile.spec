@@ -96,7 +96,7 @@ CXX              = $(SPECLANG)g++     -std=c++03 -m64
 CXX_VERSION_OPTION = -v
 EXTRA_OPTIMIZE   = -fopenmp -DSPEC_OPENMP
 EXTRA_PORTABILITY = -DSPEC_LP64
-FC               = $(SPECLANG)gfortran           -m64
+FC               = $(SPECLANG)gfortran   -fallow-argument-mismatch -m64
 FC_VERSION_OPTION = -v
 FPORTABILITY     = -fconvert=big-endian
 OPTIMIZE         = -g -O3 -march=native -fno-unsafe-math-optimizations  -fno-tree-loop-vectorize
