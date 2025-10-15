@@ -10,7 +10,7 @@ exec(open(os.path.join(HOME, 'splash2', 'splashrun')).read(), splashrun)
 
 
 def allbenchmarks():
-  benchmarks = subprocess.Popen([ '%(HOME)s/splash2/splashrun' % globals(), '-l' ], stdout = subprocess.PIPE).communicate()[0]
+  benchmarks = subprocess.Popen([ '%(HOME)s/splash2/splashrun' % globals(), '-l' ], stdout = subprocess.PIPE).communicate()[0].decode('utf-8')
   return benchmarks.split()
 
 

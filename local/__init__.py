@@ -44,16 +44,16 @@ class Program:
 
 
   def run(self, submit, postcmd = ''):
-    print '[LOCAL]', '[========== Running benchmark', self.program, '==========]'
+    print('[LOCAL]', '[========== Running benchmark', self.program, '==========]')
     cmd = submit + ' ' + self.cmd + ' ' + postcmd
-    print '[LOCAL]', 'Running \'' + cmd + '\':'
-    print '[LOCAL]', '[---------- Beginning of output ----------]'
+    print('[LOCAL]', 'Running \'' + cmd + '\':')
+    print('[LOCAL]', '[---------- Beginning of output ----------]')
     sys.stdout.flush()
     sys.stderr.flush()
     os.putenv('OMP_NUM_THREADS', str(self.ncores()))
     os.system(cmd)
-    print '[LOCAL]', '[----------    End of output    ----------]'
-    print '[LOCAL]', 'Done.'
+    print('[LOCAL]', '[----------    End of output    ----------]')
+    print('[LOCAL]', 'Done.')
 
   def rungraphiteoptions(self):
     return ''

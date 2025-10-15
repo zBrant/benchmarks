@@ -1,8 +1,8 @@
-import jikes
+from .jikes import *
 
 
 def allbenchmarks():
-  return jikes.benchmarks.keys()
+  return benchmarks.keys()
 
 
 def allinputs():
@@ -38,7 +38,7 @@ class Program:
       else:
         options.append(opt)
 
-    return jikes.run_jikes(graphitecmd, '', self.program, self.nthreads, gcthreads, options, nruns = nruns, advice = advice)
+    return run_jikes(graphitecmd, '', self.program, self.nthreads, gcthreads, options, nruns = nruns, advice = advice)
 
   def rungraphiteoptions(self):
     return ''

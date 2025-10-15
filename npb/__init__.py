@@ -136,11 +136,11 @@ def run(cmd):
   return os.system(cmd)
 
 def run_bm(bm, cmd, submit, env, postcmd = ''):
-  print '[NPB]', '[========== Running benchmark', bm, '==========]'
+  print('[NPB]', '[========== Running benchmark', bm, '==========]')
   cmd = env + ' ' + submit + ' ' + cmd + ' ' + postcmd
-  print '[NPB]', 'Running \'' + cmd + '\':'
-  print '[NPB]', '[---------- Beginning of output ----------]'
+  print('[NPB]', 'Running \'' + cmd + '\':')
+  print('[NPB]', '[---------- Beginning of output ----------]')
   rc = run(cmd)
-  print '[NPB]', '[----------    End of output    ----------]'
-  print '[NPB]', 'Done.'
+  print('[NPB]', '[----------    End of output    ----------]')
+  print('[NPB]', 'Done.')
   return rc

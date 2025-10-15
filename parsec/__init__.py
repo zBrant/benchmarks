@@ -1,5 +1,5 @@
 import sys, os, time, getopt, subprocess, tempfile
-from parsec_platform import *
+from .parsec_platform import *
 
 
 abspath = lambda d: os.path.abspath(os.path.join(d))
@@ -12,8 +12,8 @@ def allbenchmarks():
   global __allbenchmarks
   if not __allbenchmarks:
     try:
-      benchmarks = subprocess.Popen([ '%(HOME)s/parsec-2.1/bin/parsecmgmt' % globals(), '-a', 'info' ], stdout = subprocess.PIPE).communicate()
-      benchmarks = [ line[15:].split(' ')[0] for line in benchmarks[0].split('\n') if line.startswith('[PARSEC]     - ') and (line.endswith(' (apps)') or line.endswith(' (kernels)')) ]
+      benchmarks = subprocess.Popen([ '%(HOME)s/parsec-2.1/bin/parsecmgmt' % globals(), '-a', 'info' ], stdout = subprocess.PIPE).communicate()[0].decode('utf-8')
+      benchmarks = [ line[15:].split(' ')[0] for line in benchmarks.split('\n') if line.startswith('[PARSEC]     - ') and (line.endswith(' (apps)') or line.endswith(' (kernels)')) ]
       __allbenchmarks = sorted(benchmarks)
     except OSError:
       return None
@@ -123,7 +123,7 @@ class Program:
       # Therefore: set up the complete rundir ourselves, including input files and Storytelling/output
       inputfile = '%s/parsec-2.1/pkgs/apps/facesim/inputs/input_%s.tar' % (HOME, self.inputsize)
       if not os.path.exists(inputfile):
-        print 'Cannot find input file %(inputfile)s' % locals()
+        print('Cannot find input file %(inputfile)s' % locals())
         sys.exit(-1)
       flags.append('-k')
       os.system('rm -r %(rundir)s/apps/facesim/run' % locals())
