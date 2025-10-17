@@ -61,278 +61,244 @@ name_to_dir = {
 
 name_to_input_index = {
   'perlbench_r': {
-    'refrate': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
-    'all': [],
+    'ref': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
     'test': [],
     'train': []
   },
   'gcc_r': {
-    'refrate': ['gcc-smaller.c', 'gcc-pp.c', 'control', 'ref32.c'],
-    'all': [],
+    'ref': ['gcc-smaller.c', 'gcc-pp.c', 'control', 'ref32.c'],
     'test': [],
     'train': []
   },
   'bwaves_r': {
-    'refrate': ['bwaves_1.in', 'bwaves_3.in', 'bwaves_4.in', 'bwaves_2.in', 'control'],
-    'all': [],
+    'ref': ['bwaves_1.in', 'bwaves_3.in', 'bwaves_4.in', 'bwaves_2.in', 'control'],
     'test': [],
     'train': []
   },
   'mcf_r': {
-    'refrate': ['control', 'inp.in'],
-    'all': [],
+    'ref': ['control', 'inp.in'],
     'test': [],
     'train': []
   },
   'cactuBSSN_r': {
-    'refrate': ['control', 'spec_ref.par'],
-    'all': [],
+    'ref': ['control', 'spec_ref.par'],
     'test': [],
     'train': []
   },
   'namd_r': {
-    'refrate': ['namd.in'],
-    'all': [],
+    'ref': ['namd.in'],
     'test': [],
     'train': []
   },
   'parest_r': {
-    'refrate': ['ref.prm'],
-    'all': [],
+    'ref': ['ref.prm'],
     'test': [],
     'train': []
   },
   'povray_r': {
-    'refrate': ['SPEC-benchmark-ref.ini', 'SPEC-benchmark-ref.pov'],
-    'all': [],
+    'ref': ['SPEC-benchmark-ref.ini', 'SPEC-benchmark-ref.pov'],
     'test': [],
     'train': []
   },
   'lbm_r': {
-    'refrate': ['lbm.in', '100_100_130_ldc.of'],
-    'all': [],
+    'ref': ['lbm.in', '100_100_130_ldc.of'],
     'test': [],
     'train': []
   },
   'omnetpp_r': {
-    'refrate': ['omnetpp.ini', 'control'],
-    'all': [],
+    'ref': ['omnetpp.ini', 'control'],
     'test': [],
     'train': []
   },
   'wrf_r': {
-    'refrate': ['control', 'namelist.input'],
-    'all': [],
+    'ref': ['control', 'namelist.input'],
     'test': [],
     'train': []
   },
   'xalancbmk_r': {
-    'refrate': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
-    'all': [],
+    'ref': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
     'test': [],
     'train': []
   },
   'x264_r': {
-    'refrate': ['control', 'BuckBunny.264'],
-    'all': [],
+    'ref': ['control', 'BuckBunny.264'],
     'test': [],
     'train': []
   },
   'blender_r': {
-    'refrate': ['sh3_no_char.blend', 'control'],
-    'all': [],
+    'ref': ['sh3_no_char.blend', 'control'],
     'test': [],
     'train': []
   },
   'cam4_r': {
-    'refrate': ['drv_flds_in', 'atm_in', 'drv_in'],
-    'all': [],
+    'ref': ['drv_flds_in', 'atm_in', 'drv_in'],
     'test': [],
     'train': []
   },
   'deepsjeng_r': {
-    'refrate': ['ref.txt'],
-    'all': [],
+    'ref': ['ref.txt'],
     'test': [],
     'train': []
   },
   'imagick_r': {
-    'refrate': ['control', 'refrate_input.tga'],
-    'all': [],
+    'ref': ['control', 'refrate_input.tga'],
     'test': [],
     'train': []
   },
   'leela_r': {
-    'refrate': ['ref.sgf'],
-    'all': [],
+    'ref': ['ref.sgf'],
     'test': [],
     'train': []
   },
   'nab_r': {
-    'refrate': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
   'exchange2_r': {
-    'refrate': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
   'fotonik3d_r': {
-    'refrate': ['power2.dat', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'incident_W3PC.def', 'PSI.dat', 'trans_W3PC.def'],
-    'all': [],
+    'ref': ['power2.dat', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'incident_W3PC.def', 'PSI.dat', 'trans_W3PC.def'],
     'test': [],
     'train': []
   },
   'roms_r': {
-    'refrate': ['ocean_benchmark2.in.x'],
-    'all': [],
+    'ref': ['ocean_benchmark2.in.x'],
     'test': [],
     'train': []
   },
   'xz_r': {
-    'refrate': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
   'perlbench_s': {
-    'refspeed': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
-    'all': [],
+    'ref': ['splitmail.in', 'checkspam.pl', 'diffmail.in', 'checkspam.in'],
     'test': [],
     'train': []
   },
   'gcc_s': {
-    'refspeed': ['gcc-pp.c', 'control'],
-    'all': [],
+    'ref': ['gcc-pp.c', 'control'],
     'test': [],
     'train': []
   },
   'bwaves_s': {
-    'refspeed': ['bwaves_1.in', 'bwaves_2.in', 'control'],
-    'all': [],
+    'ref': ['bwaves_1.in', 'bwaves_2.in', 'control'],
     'test': [],
     'train': []
   },
   'mcf_s': {
-    'refspeed': ['control', 'inp.in'],
-    'all': [],
+    'ref': ['control', 'inp.in'],
     'test': [],
     'train': []
   },
   'cactuBSSN_s': {
-    'refspeed': ['control', 'spec_ref.par'],
-    'all': [],
+    'ref': ['control', 'spec_ref.par'],
     'test': [],
     'train': []
   },
   'lbm_s': {
-    'refspeed': ['lbm.in', '200_200_260_ldc.of'],
-    'all': [],
+    'ref': ['lbm.in', '200_200_260_ldc.of'],
     'test': [],
     'train': []
   },
   'omnetpp_s': {
-    'refspeed': ['omnetpp.ini', 'control'],
-    'all': [],
+    'ref': ['omnetpp.ini', 'control'],
     'test': [],
     'train': []
   },
   'wrf_s': {
-    'refspeed': ['control', 'namelist.input'],
-    'all': [],
+    'ref': ['control', 'namelist.input'],
     'test': [],
     'train': []
   },
   'xalancbmk_s': {
-    'refspeed': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
-    'all': [],
+    'ref': ['100mb.xsd', 't5.xml', 'xalanc.xsl', 'ref.lst'],
     'test': [],
     'train': []
   },
   'x264_s': {
-    'refspeed': ['control', 'BuckBunny.264'],
-    'all': [],
+    'ref': ['control', 'BuckBunny.264'],
     'test': [],
     'train': []
   },
   'cam4_s': {
-    'refspeed': ['drv_flds_in', 'atm_in', 'drv_in'],
+    'ref': ['drv_flds_in', 'atm_in', 'drv_in'],
     'all': [],
     'test': [],
     'train': []
   },
   'pop2_s': {
-    'refspeed': ['pop2_in', 'dlnd_in', 'nyf.gxgxs.T62.stream.txt', 'glc_modelio.nml', 'dlnd_sno_in', 'seq_maps.rc', 'nyf.ncep.T62.stream.txt', 'dice_ice_in', 'datm_atm_in', 'gx3v7_tavg_contents', 'dice_in', 'datm_in', 'cpl_modelio.nml', 'dlnd_rof_in', 'nyf.giss.T62.stream.txt', 'ice_modelio.nml', 'pop2_in.org', 'drv_in.in', 'runoff.1x1.stream.txt', 'dlnd_lnd_in', 'ssmi_ifrac.clim.x0.5.txt', 'ocn_modelio.nml', 'lnd_modelio.nml', 'atm_modelio.nml'],
-    'all': [],
+    'ref': ['pop2_in', 'dlnd_in', 'nyf.gxgxs.T62.stream.txt', 'glc_modelio.nml', 'dlnd_sno_in', 'seq_maps.rc', 'nyf.ncep.T62.stream.txt', 'dice_ice_in', 'datm_atm_in', 'gx3v7_tavg_contents', 'dice_in', 'datm_in', 'cpl_modelio.nml', 'dlnd_rof_in', 'nyf.giss.T62.stream.txt', 'ice_modelio.nml', 'pop2_in.org', 'drv_in.in', 'runoff.1x1.stream.txt', 'dlnd_lnd_in', 'ssmi_ifrac.clim.x0.5.txt', 'ocn_modelio.nml', 'lnd_modelio.nml', 'atm_modelio.nml'],
     'test': [],
     'train': []
   },
   'deepsjeng_s': {
-    'refspeed': ['ref.txt'],
-    'all': [],
+    'ref': ['ref.txt'],
     'test': [],
     'train': []
   },
   'imagick_s': {
-    'refspeed': ['refspeed_input.tga', 'control'],
-    'all': [],
+    'ref': ['refspeed_input.tga', 'control'],
     'test': [],
     'train': []
   },
   'leela_s': {
-    'refspeed': ['ref.sgf'],
-    'all': [],
+    'ref': ['ref.sgf'],
     'test': [],
     'train': []
   },
   'nab_s': {
-    'refspeed': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
   'exchange2_s': {
-    'refspeed': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
   'fotonik3d_s': {
-    'refspeed': ['power2.dat', 'incident_W3PC_25nm.def', 'trans_W3PC_25nm.def', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'PSI.dat'],
-    'all': [],
+    'ref': ['power2.dat', 'incident_W3PC_25nm.def', 'trans_W3PC_25nm.def', 'OBJ.dat.xz', 'power1.dat', 'yee.dat', 'TEwaveguide.m', 'PSI.dat'],
     'test': [],
     'train': []
   },
   'roms_s': {
-    'refspeed': ['ocean_benchmark3.in.x'],
-    'all': [],
+    'ref': ['ocean_benchmark3.in.x'],
     'test': [],
     'train': []
   },
   'xz_s': {
-    'refspeed': ['control'],
-    'all': [],
+    'ref': ['control'],
     'test': [],
     'train': []
   },
 }
 
 inputmap = {
-  'all': 'all',
   'test': 'test',
   'train': 'train',
-  'refspeed': 'refspeed',
-  'refrate': 'refrate',
+  'ref': 'ref',
+  # small is not valid
+  'large': 'train',
+  'huge': 'ref',
 }
+
 
 def allbenchmarks():
   return map(lambda x: x[0], sorted(name_to_dir.items(), key=lambda x: x[1]))
 
+
 def allinputs():
   return inputmap.keys()
+
+
+def getinput(inputsize, program):
+  if inputsize != 'ref': return inputmap[inputsize] 
+  return 'refrate' if program[-1] == 'r' else 'refspeed'
 
 
 class Program:
@@ -362,7 +328,7 @@ class Program:
       raise ValueError("Invalid program index (%s/%s)" % (origprogram, index))
     self.program = program
     self.nthreads = nthreads
-    self.inputsize = inputmap[inputsize]
+    self.inputsize = getinput(inputsize, program)
     self.index = index
 
 
@@ -426,6 +392,7 @@ def run(cmd):
   rc = os.system(cmd)
   rc >>= 8
   return rc
+
 
 def run_bm(bm, cmd, submit, env, postcmd = ''):
   print('[CPU2017]', '[========== Running benchmark', bm, '==========]')
