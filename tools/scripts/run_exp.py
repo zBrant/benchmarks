@@ -9,16 +9,14 @@ TASK_SPOOLER = 'tsp'
 
 # these are the defaults values for each field
 CFG_DEFAULT = { 
-  "label": "test100M",
+  "label": "default",
   "config": ["gainestown"],
   "slots": 4,
-  "benchmarks": ["cpu2006", "parsec", "splash"],
+  "benchmarks": ["cpu2006", "parsec", "splash2", "cpu2017"],
   "apps": ["all"],
-  "inputs": ["large"],
-  "n_cores": 4,
-  "out_dir": "teste",
-  "from_1_to_n_core": False,
-  "core_step": 4,
+  "inputs": ["ref"],
+  "n_cores": [4],
+  "out_dir": ".",
   "instr": 100000000, #100M
   "force": False,
   "debug": False,
@@ -61,18 +59,14 @@ def parse_cfg_file(f):
   return configs
 
 
-def validate_fields(f):
-  pass
-
-
 def add_app_to_spooler(benchmark, app_name, inpt, n_cores, config, out_dir, n_instr):
   cmd = f"{TASK_SPOOLER} {HOME_BENCHMARKS}/run-sniper -p {benchmark}-{app_name} -i {inpt} -n {n_cores} -c {config} -d {out_dir} -s stop-by-icount:{n_instr}"
+  #os.system(cmd)
   print(cmd)
- # os.system(cmd) # TODO: remove comment
 
 
 def run(config_file):
-  cores_for_each = [config_file['n_cores']] if not config_file['from_1_to_n_core'] else range(config_file['n_cores'], 0, -config_file['core_step'])
+  cores = config_file['n_cores']
   benchmarks = config_file['benchmarks']
   configs = config_file['configs']
   inputs = config_file['inputs']
@@ -83,15 +77,9 @@ def run(config_file):
 
   slots = config_file['slots']
   os.system(f"{TASK_SPOOLER} -S {slots}")
-
-  if len(benchmarks) == 1:
-    for config, n_cores, inpt, app in product(configs, cores_for_each, inputs, ALL_APPS[benchmarks[0]]):
-      out_path = f"{out_dir}/results/{label}/{n_cores}/{benchmarks[0]}/{app}/{inpt}/{config}"
-      add_app_to_spooler(benchmarks[0], app, inpt, n_cores, config, out_path, n_instr)
-    return
     
   for benchmark in benchmarks:
-    for config, n_cores, inpt, app in product(configs, cores_for_each, inputs, ALL_APPS[benchmark]):
+    for config, n_cores, inpt, app in product(configs, cores, inputs, ALL_APPS[benchmark]):
       out_path = f"{out_dir}/results/{label}/{n_cores}/{benchmark}/{app}/{inpt}/{config}"
       add_app_to_spooler(benchmark, app, inpt, n_cores, config, out_path, n_instr)
 
@@ -106,7 +94,6 @@ def main():
     cfgs = None
     with open(args.config[0], 'rb') as f: cfgs = parse_cfg_file(tomllib.load(f))
 
-    validate_fields(cfgs)
     for cfg in cfgs: run(cfg)
   except Exception as e:
     print(f"An error occurred: {e}")

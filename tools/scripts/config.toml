@@ -1,0 +1,29 @@
+# Donuts configuration file
+#
+# configs: donuts configurations to the experiment (one or more config files)
+# slots: number of task-spooler slots (default 4)
+# benchmarks: benchmark selected (must be one of ALL_BENCHMARKS)
+# apps: applications to run (default ['all'])
+# inputs: input type (default 'ref')
+# label: test name or label for the experiment
+# ncores: number of cores to run (default value is a array [4] )
+# core_step: steps for each interation when running from 1 out to ncores
+# instr: number of instructions to simulate (default 1B)
+# force: force test, override old results (boolean flag)
+# debug: debug mode, only show the commands (boolean flag)
+
+# to run specifics apps use only the benchmark that has those apps
+
+[[runner]]
+label = "test-nvm"
+configs = ["donuts", "gainestown-nvm"]
+slots = 4
+benchmarks = ["cpu2006"]
+apps = ["all"]
+inputs = ["ref"]
+n_cores = [1]
+out_dir = "hoje3"
+instr = 30000000 
+force = false
+debug = false
+
