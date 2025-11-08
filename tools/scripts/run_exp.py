@@ -61,8 +61,7 @@ def parse_cfg_file(f):
 
 def add_app_to_spooler(benchmark, app_name, inpt, n_cores, config, out_dir, n_instr):
   cmd = f"{TASK_SPOOLER} {HOME_BENCHMARKS}/run-sniper -p {benchmark}-{app_name} -i {inpt} -n {n_cores} -c {config} -d {out_dir} -s stop-by-icount:{n_instr}"
-  #os.system(cmd)
-  print(cmd)
+  os.system(cmd)
 
 
 def run(config_file):
